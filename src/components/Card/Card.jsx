@@ -2,16 +2,30 @@ import React, { useState } from "react";
 import "./card.css";
 
 function Card({ card }) {
-  const [showCard, setShowCard] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleClick = () => {
+    setIsFlipped(true);
+  };
+
   return (
     <div className="card-container">
-      <div onClick={() => setShowCard(true)} className={"card " + card.rarity}>
-        {showCard !== true && (
-          <img src={require("../../assets/cardback.webp")} alt="cardback" />
-        )}
-        {showCard === true && <img src={card.img} alt={card.name} />}
+      <div className="card" onClick={handleClick}>
+        <div className={`card-inner ${isFlipped ? "flipped" : ""}`}>
+          <div className="card-front">
+            <img
+              className="passive-card"
+              src={require("../../assets/cardback.webp")}
+              alt="cardback"
+            />
+          </div>
+          <div className="card-back">
+            <img className="active-card" src={card.img} alt={card.name} />
+          </div>
+          {!isFlipped && <div className={`rarity ${card.rarity} `} />}
+        </div>
       </div>
-      <div className="rarity"/>
+      
     </div>
   );
 }
