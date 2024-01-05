@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Pack from "./components/Pack/Pack";
 import { useCard } from "./context/CardContext";
+import Packs from "./components/Packs/Packs";
 
 function App() {
   const { allCards } = useCard();
@@ -20,7 +20,7 @@ function App() {
         <p>Loading...</p>
       ) : (
         <div>
-          <Pack cardSetName="Classic" />
+          <Packs />
         </div>
       )}
     </div>

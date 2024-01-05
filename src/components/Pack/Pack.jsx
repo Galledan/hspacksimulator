@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useCard } from "../../context/CardContext";
 import Randomly from "weighted-randomly-select";
+import Card from "../Card/Card";
+import "./pack.css"
 
 function Pack({ cardSetName }) {
   const { allCards } = useCard();
   const [pack, setPack] = useState();
-  const [showCard, setShowCard] = useState(false)
+
   const [commonCards, setCommonCards] = useState();
   const [rareCards, setRareCards] = useState();
   const [epicCards, setEpicCards] = useState();
@@ -64,10 +66,9 @@ function Pack({ cardSetName }) {
     const newPack = [];
 
     const getRandomCard = (cardsArray) => {
-      if(allCards){
+      if (allCards) {
         return cardsArray[Math.floor(Math.random() * cardsArray.length)];
       }
-      
     };
 
     switch (firstChance) {
@@ -102,7 +103,7 @@ function Pack({ cardSetName }) {
           break;
       }
     }
-    setPack(newPack)
+    setPack(newPack);
   };
   useEffect(() => {
     if (allCards) {
@@ -112,21 +113,12 @@ function Pack({ cardSetName }) {
 
   useEffect(() => {
     if (commonCards) {
-      createPack()
+      createPack();
     }
   }, [commonCards]);
 
   return (
-    <div>
-      {pack &&
-        pack.map((card,i) => (
-          <div onClick={() => setShowCard(true)} key={i} className="card">
-            {showCard !== true && <img height={300} src={require("../../assets/cardback.webp")} alt="cardback" />}
-            {showCard === true && <img height={320} src={card.img} alt={card.name} />}
-          </div>
-          
-        ))}
-    </div>
+    <div className="cards">{pack && pack.map((card, i) => <Card key={i} card={card} />)}</div>
   );
 }
 
