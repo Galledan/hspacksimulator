@@ -7,10 +7,9 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-  
     if(allCards) {
       setLoading(false)
-     
+      console.log(allCards);
     }
   }, [allCards]);
 

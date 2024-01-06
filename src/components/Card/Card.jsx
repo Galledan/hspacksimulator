@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./card.css";
-
 function Card({ card }) {
   const [isFlipped, setIsFlipped] = useState(false);
+
+
 
   const handleClick = () => {
     setIsFlipped(true);
@@ -20,7 +21,7 @@ function Card({ card }) {
             />
           </div>
           <div className="card-back">
-            <img className="active-card" src={card.img} alt={card.name} />
+            <img className="active-card" src={`https://art.hearthstonejson.com/v1/render/latest/enUS/512x/${card.id}.png`} alt={card.name} />
           </div>
           {!isFlipped && <div className={`rarity ${card.rarity} `} />}
         </div>
