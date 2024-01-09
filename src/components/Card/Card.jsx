@@ -3,11 +3,10 @@ import "./card.css";
 function Card({ card }) {
   const [isFlipped, setIsFlipped] = useState(false);
 
-
-
   const handleClick = () => {
     setIsFlipped(true);
   };
+
 
   return (
     <div className="card-container">

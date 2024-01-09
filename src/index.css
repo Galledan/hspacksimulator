@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Friz Quadrata Std', sans-serif;
+}
+
+
+:root {
+    --Dark-Lava: rgb(70, 60, 45);
+    --Beer: rgb(247, 140, 21);
+    --Ripe-Mango: rgb(255, 195, 31);
+    --Banana-Yellow: rgb(255, 234, 62);
+    --White: rgb(255, 254, 255);
+    --Button-Blue: rgb(38, 174, 231);
+}

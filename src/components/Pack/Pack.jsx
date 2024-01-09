@@ -5,7 +5,7 @@ import Card from "../Card/Card";
 import "./pack.css";
 
 function Pack({ cardSetName }) {
-  const { allCards } = useCard();
+  const { allCards, isPackOpened, setIsPackOpened} = useCard();
   const [pack, setPack] = useState();
 
   const [commonCards, setCommonCards] = useState();
@@ -113,13 +113,20 @@ function Pack({ cardSetName }) {
   useEffect(() => {
     if (commonCards) {
       createPack();
+      console.log("deneme");
     }
   }, [commonCards]);
 
   return (
-    <div className="cards">
+    <>
+     <div className="cards">
       {pack && pack.map((card, i) => <Card key={i} card={card} />)}
     </div>
+    <div className="return-button">
+      <button onClick={()=> setIsPackOpened(false)}>Return</button>
+    </div>
+    </>
+   
   );
 }
 

@@ -2,3 +2,17 @@
     display: flex;
     gap: 100px;
 }
+
+.return-button > button {
+    border: 0px;
+    background-color: transparent;
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: var(--Banana-Yellow);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.return-button > button:hover{
+    font-size: 1.6rem;
+}

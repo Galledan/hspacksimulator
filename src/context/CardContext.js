@@ -4,7 +4,7 @@ const CardContext = createContext();
 
 const CardProvider = ({ children }) => {
   const [allCards, setAllCards] = useState();
-
+  const [isPackOpened, setIsPackOpened] = useState(false);
   const fetchData = async () => {
     try {
       const response = await axios.get('https://api.hearthstonejson.com/v1/190920/enUS/cards.collectible.json');
@@ -24,7 +24,7 @@ const CardProvider = ({ children }) => {
   //   setAllCards(data)
   // }, []);
 
-  const value = { allCards };
+  const value = { allCards,isPackOpened, setIsPackOpened };
 
   return <CardContext.Provider value={value}>{children}</CardContext.Provider>;
 };
